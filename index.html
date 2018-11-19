@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Entendendo como uma linguagem de programação é feita</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -24,18 +24,84 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+				<section data-transition="slide-in fade-out">
+					<h6> Entendendo como uma linguagem de programação é feita </h6>
+					
+					<img src="meme.jpg" heigh="45%" width="45%"/> 
+				</section>
+
+				<section data-transition="slide-in fade-out">
+					<h6> O que é uma linguagem ? </h6> <br/>
+
+					<h6 class="fragment fade-up"> O que é uma linguagem de programação ? </h6>
+				</section>
+
+				<section>
+					<h6> O que é a implementação de uma linguagem de programação ? </h6>
+
+					<br/>
+
+					<ul class="fragment fade-up">
+						<h3 class="table-title"> Implementações de Ruby </h3> 
+
+						<li>Matz's Ruby Interpreter/CRuby</li>
+						<li>JRuby</li>
+						<li>mruby</li>
+						<li>Rubinius</li>
+					</ul>
+						
+					<ul class="fragment fade-up">
+						<h3 class="table-title">  Implementações de C </h3>
+
+						<li> GNU C Compiler/GCC </li>
+						<li> Clang </li>
+					</ul>
+				</section>
+
+				<section>
+					<h6> Linguagem x Implementação </h6>
+				</section>
+
+				<section>
+					<h6> Tipos de Implementação </h6>
+
+					<ul> 
+						<li class="fragment fade-in-then-semi-out grow">Interpretador</li>
+						<li class="fragment fade-in-then-semi-out grow">Compilador Ahead of Time</li>
+						<li class="fragment fade-in-then-semi-out grow">Compilador Just in Time</li>
+					</ul>
+					
+				</section>
+
+				<section>
+					<h6> Fases de um compilador </h6>
+
+					<img src="compiler_phases.jpg" width="60%" height="60%"/> 
+				</section>
+
+				<section>
+					<h6> Analisador Léxico </h6>
+				</section>
+
+				<section>
+					<h6> Analisador Sintático </h6>
+				</section>
+
+				<section>
+					<h6> Gerador de Código </h6>
+				</section>
+
+				<section> 
+					<h6> Máquina Virtual </h6>
+				</section>
 			</div>
 		</div>
+
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },

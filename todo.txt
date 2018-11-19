@@ -1,0 +1,11 @@
+-> Introdução
+-> O que é uma Linguagem
+-> O que é uma Linguagem de Programação
+-> O que é uma Implementação de Linguagem
+-> Diferenças entre Linguagens de Programação x Implementações
+-> Tipos de Implementações(Compiladores/AOT, Compiladores/JIT, Interpretadores)
+-> Fases de um compilador
+  -> Análise Léxica
+  -> Análise Sintática
+  -> Geração de Código
+  -> Máquina Virtual
