@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/monokai.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -24,6 +24,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
+				<!--
 				<section data-transition="slide-in fade-out">
 					<h6> Entendendo como uma linguagem de programação é feita </h6>
 					
@@ -74,17 +75,68 @@
 				</section>
 
 				<section>
-					<h6> Fases de um compilador </h6>
+					<h6> Fases de uma implementação</h6>
 
-					<img src="compiler_phases.jpg" width="60%" height="60%"/> 
-				</section>
+					<div>
+						<img src="interpreter.png" class="plain"/> 
+						<img src="aot.png" class="plain"/>
+						<img src="vm.png" class="plain"/>
+						<img src="jit.png" class="plain"/>
+					</div>	
+				</section>-->
 
 				<section>
 					<h6> Analisador Léxico </h6>
+
+					<p class="fragment fade-up"> O que é um analisador léxico? </p>
+
+					<span class="fragment fade-up"> 
+						Exemplo de Input: 
+							<pre><code data-trim data-noescape>
+								def my_method(arg)
+									puts "123" + 4
+								end
+							</code></pre>
+					</span>
+
+					<span class="fragment fade-up"> 
+						Exemplo de Output: 
+						<pre><code data-trim data-noescape>
+							[
+								TK_DEF, TK_IDENTIFIER, TK_OPENPAR, TK_IDENTIFIER, TK_CLOSEPAR, TK_NEWLINE
+								TK_IDENTIFIER, TK_STRING, TK_PLUS, TK_INT, TK_NEWLINE,
+								TK_END, TK_NEWLINE
+							]
+						</code></pre>
+					</span>
 				</section>
 
 				<section>
 					<h6> Analisador Sintático </h6>
+				
+					<p class="fragment fade-up"> O que é um analisador sintático? </p> 
+
+					<span class="fragment fade-up">  
+						<pre><code data-trim data-noescape>
+							"hello world" def my_method(arg)
+								puts "Hello World"
+							end
+						</code></pre>
+					</span>
+
+					<span class="fragment fade-up">  
+						<pre><code data-trim data-noescape>
+							"hello world"
+							
+							def my_method(arg)
+								puts "Hello World"
+							end
+						</code></pre>
+					</span>
+
+					<span class="fragment fade-up">
+						
+					</span>
 				</section>
 
 				<section>
@@ -107,7 +159,14 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { 
+							hljs.initHighlightingOnLoad(); 
+							hljs.configure({
+								tabReplace: '  ',
+								languages: ['Ruby'],
+							})
+						} 
+					}
 				]
 			});
 		</script>
