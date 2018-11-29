@@ -249,7 +249,9 @@ footer .footer_image {
 
 .reveal section img.plain {
   border: 0;
-  box-shadow: none; 
+  -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
 }
 
 .reveal a img {

@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>Entendendo como uma linguagem de programação é feita</title>
+		<title>Linguagens x Implementações</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
@@ -24,9 +24,8 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<!--
 				<section data-transition="slide-in fade-out">
-					<h6> Entendendo como uma linguagem de programação é feita </h6>
+					<h6> Entendendo como uma linguagem de programação é construída </h6>
 					
 					<img src="meme.jpg" heigh="45%" width="45%"/> 
 				</section>
@@ -75,15 +74,13 @@
 				</section>
 
 				<section>
-					<h6> Fases de uma implementação</h6>
+					<h6> Fases de um compilador</h6>
 
 					<div>
-						<img src="interpreter.png" class="plain"/> 
-						<img src="aot.png" class="plain"/>
-						<img src="vm.png" class="plain"/>
-						<img src="jit.png" class="plain"/>
+						<img src="compiler.png" class="plain"/> 
 					</div>	
-				</section>-->
+				</section>
+					
 
 				<section>
 					<h6> Analisador Léxico </h6>
@@ -133,10 +130,46 @@
 							end
 						</code></pre>
 					</span>
+				</section>
+
+				<section>
+					<h6> Definição de Gramática </h6>
+
+					<p class="fragment fade-up"> Backus-Naur Form </p>
 
 					<span class="fragment fade-up">
-						
+						<pre><code data-trim data-noescape>
+							&lt;toplevel&gt;        ::= &lt;statement_list&gt;
+							
+							&lt;statement_list&gt;  ::= &lt;statement&gt; | &lt;statement&gt; TK_NEWLINE &lt;statement&gt;
+							
+							&lt;statement&gt;       ::= &lt;expression&gt; | &lt;method_call&gt;
+							
+							&lt;method_call&gt;     ::= TK_IDENTIFIER TK_OPENPAR &lt;expression&gt; TK_CLOSEPAR
+
+							&lt;expression&gt;      ::= &lt;expression&gt; &lt;bin_operator&gt; &lt;expression&gt;
+
+							&lt;literal&gt;         ::= TK_IDENTIFIER | TK_NUMBER
+							
+							&lt;bin_operator&gt;    ::= TK_PLUS
+						</code></pre>
 					</span>
+				</section> 
+
+				<section> 
+					<h6> Abstract Syntax Tree </h6>
+
+					<img src="ast.png" class="plain"/> 
+				</section>
+
+				<section> 
+					<h6> Ferramentas de Auxílio </h6>
+
+					<ul> 
+						<li class="fragment fade-in-then-semi-out grow">Lexers: Lex(Flex)</li>
+						<li class="fragment fade-in-then-semi-out grow">Parsers: Yacc(Bison)</li>
+						<li class="fragment fade-in-then-semi-out grow">Geração de Código: LLVM / LibJIT</li>
+					</ul>
 				</section>
 
 				<section>
@@ -144,7 +177,26 @@
 				</section>
 
 				<section> 
-					<h6> Máquina Virtual </h6>
+					<h6> Como começar aprender mais sobre compiladores ? </h6>
+
+					<ul class="fragment fade-up">
+						<h3 class="table-title"> Códigos de Exemplo </h3> 
+
+						<li> Kaleidoscope </li>
+						<li> mruby </li>
+						<li> Lua </li>
+					</ul>
+
+					<ul class="fragment fade-up">
+						<h3 class="table-title"> Livros </h3> 
+
+						<li> Dragonbook </li>
+						<li> Ruby Under a Microscope </li>
+					</ul>
+				</section>
+
+				<section>
+					<h6> Muito obrigado a todos :D </h6>
 				</section>
 			</div>
 		</div>
@@ -163,7 +215,7 @@
 							hljs.initHighlightingOnLoad(); 
 							hljs.configure({
 								tabReplace: '  ',
-								languages: ['Ruby'],
+								languages: ['ruby', 'bnf'],
 							})
 						} 
 					}
